@@ -1,5 +1,5 @@
 <?php
-include("connection.php");
+include "connection.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +14,7 @@ include("connection.php");
 <body>
 
     <?php
-    include("layout/navbar.php");
+include "layout/navbar.php";
 ?>
 
     <?php
@@ -22,16 +22,16 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 
-    if (isset($_SESSION['email'])) {
-        // If the user is logged in, display the username
-        $email = $_SESSION['email']; // Assuming 'email' is the session key for the username
-        echo '<p>Welcome, ' . $email . '</p>';
-    } else {
-        // If the user is not logged in, redirect to the login page
-        header("Location: login.php");
-        exit();
-    }
-    ?>
+if (isset($_SESSION['email'])) {
+    // If the user is logged in, display the username
+    $email = $_SESSION['email']; // Assuming 'email' is the session key for the username
+    echo '<p>Welcome, ' . $email . '</p>';
+} else {
+    // If the user is not logged in, redirect to the login page
+    header("Location: login.php");
+    exit();
+}
+?>
 
     <!-- Dashboard content goes here -->
     <!-- ... -->
@@ -40,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
 
 
     <center>
-        <h1>Welcome User dahboard</h1>
+        <h1>Welcome admin dahboard</h1>
     </center>
 </body>
 

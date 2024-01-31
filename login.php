@@ -1,29 +1,31 @@
-<?php 
+<?php
 
-include("connection.php");
+include "connection.php";
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #f8f9fa;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    body {
+        background-color: #f8f9fa;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-        .card {
-            width: 400px;
-        }
+    .card {
+        width: 400px;
+    }
     </style>
 </head>
+
 <body>
     <div class="card">
         <div class="card-body">
@@ -37,7 +39,9 @@ include("connection.php");
                     <label for="password">Password:</label>
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
-                <button type="submit" class="btn btn-primary btn-block">Login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <!-- <button type="submit" class="btn btn-primary">SignUp</button> -->
+                <a href="register.php" class="btn btn-Success">SignUp</a>
             </form>
         </div>
     </div>
@@ -48,7 +52,7 @@ include("connection.php");
 </body>
 
 
-<?php 
+<?php
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email'];
@@ -65,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($user_type == 'admin') {
             $_SESSION['email'] = $email;
             $_SESSION['user_type'] = $user_type;
-            header("location: userdashboard.php"); // Redirect to admin dashboard after successful login
+            header("location: Admindashboard.php"); // Redirect to admin dashboard after successful login
         } elseif ($user_type == 'user') {
             $_SESSION['email'] = $email;
             $_SESSION['user_type'] = $user_type;
